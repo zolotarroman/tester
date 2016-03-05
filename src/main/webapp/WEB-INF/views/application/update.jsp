@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<title>application_modify</title>
+	<title>${title}</title>
 	
 	<!-- Bootstrap Core CSS -->
 	<link href="<c:url value="/resources/bower_components/bootstrap/dist/css/bootstrap.min.css" />" rel="stylesheet"  type='text/css' media='all'>
@@ -17,11 +17,6 @@
 	<link
 	  href="/resources/bower_components/font-awesome/css/font-awesome.css"
 	  rel="stylesheet">
-	
-	  <!--[if lt IE 9]>
-	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	    <![endif]-->
 
 <style type="text/css">
 th {
@@ -40,10 +35,11 @@ th {
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading"><h3>Application Modify</h3></div>
+            <div class="panel-heading"><h3>${title}</h3></div>
           <div class="panel body">
             <div class="row"></div>
           <form:form cssClass="form-horizontal" action="" method="POST" modelAttribute="application">
+          <form:hidden path="id"/>
           <div class="form-group">
           	<form:label path="name" cssClass="col-sm-2 control-label">Name:</form:label>
               <div class="col-sm-8">
@@ -65,8 +61,8 @@ th {
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-success">Save</button> 
-            <button type="submit" class="btn btn-info">Reset</button>
-            <button type="submit" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-info" onclick="location.reload();">Reset</button>
+            <button type="button" class="btn btn-danger" onclick="location.href='<c:url value="/application" />'">Cancel</button>
           </div>
         </div>
         </form:form>

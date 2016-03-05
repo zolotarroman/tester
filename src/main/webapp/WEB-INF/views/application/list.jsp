@@ -10,15 +10,15 @@
 
 <!-- Bootstrap Core CSS -->
 <link
-	href="/resources/bower_components/bootstrap/dist/css/bootstrap.min.css"
+	href="<c:url value= "/resources/bower_components/bootstrap/dist/css/bootstrap.min.css"/>"
 	rel="stylesheet " type='text/css' media='all'>
 
 <!-- Custom CSS -->
-<link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
+<link href="<c:url value="/resources/dist/css/sb-admin-2.css"/>" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link
-	href="resources/bower_components/font-awesome/css/font-awesome.css"
+	href="<c:url value="/resources/bower_components/font-awesome/css/font-awesome.css"/>"
 	rel="stylesheet">
 
 <style type="text/css">
@@ -40,13 +40,10 @@ th {
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3>Application</h3>
-						<button id="editor" class="btn btn-info">Create new
+						<button type="button" class="btn btn-info" onclick="location.href='<c:url value="/application/create" />'">Create new
 							application</button>
 					</div>
 					<div class="panel body">
-
-
-
 
 						<table
 							class="table table-striped table table-hover table-bordered table-condensed text-center panel-body"
@@ -69,7 +66,8 @@ th {
 										<td><c:out value="${application.deleted}"></c:out></td>
 										<td>
 
-											<button type="button" class="btn btn-success btn-sm" onclick="location.href='<c:url value="/application/${application.id}" />'">
+											<button type="button" class="btn btn-success btn-sm"
+												onclick="location.href='<c:url value="/application/${application.id}" />'">
 												<span class="glyphicon glyphicon-pencil"></span>Modify
 											</button>
 
