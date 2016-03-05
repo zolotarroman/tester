@@ -72,7 +72,8 @@ th {
 											</button>
 
 
-											<button type="button" class="btn btn-danger btn-sm">
+											<button type="button" class="btn btn-danger btn-sm"
+												onclick="location.href='<c:url value="/application/delete/${application.id}" />'">
 												<span class="glyphicon glyphicon-trash"></span>Delete
 											</button>
 

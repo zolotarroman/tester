@@ -46,8 +46,8 @@ public class ApplicationController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String saveCreatedApplication(@Valid @ModelAttribute("application") Application application, BindingResult result,
-			Model model) {
+	public String saveCreatedApplication(@Valid @ModelAttribute("application") Application application,
+			BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("title", "Create Application");
 			return "application/update";
@@ -57,13 +57,19 @@ public class ApplicationController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String saveUpdatedApplication(@Valid @ModelAttribute("application") Application application, BindingResult result,
-			Model model) {
+	public String saveUpdatedApplication(@Valid @ModelAttribute("application") Application application,
+			BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("title", "Update Application");
 			return "application/update";
 		}
 		metaDataService.applicationUpdate(application);
+		return "redirect:/application";
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String deleteApplication(@PathVariable(value = "id") Integer id, Model model) {
+		metaDataService.applicationSoftDelete(id);
 		return "redirect:/application";
 	}
 }
