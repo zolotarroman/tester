@@ -199,6 +199,19 @@ public class MetaDataService {
 		}
 	}
 	
+	public void serviceSoftDelete(int id) {
+		try {
+			Service service = serviceMapper.load(id);
+			if (service != null) {
+				service.setDeleted(true);
+				serviceMapper.update(service);
+			}
+		} catch (DataAccessException e) {
+			LOGGER.error("Unable to delete line from Service table with next id: " + id, e);
+			throw e;
+		}
+	}
+	
 	/**
      * Saves {@link Service} instance in database
      * @param service object

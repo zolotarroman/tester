@@ -29,15 +29,4 @@ public class MetaDataController {
 		return modelAndView;
     }
 
-	@RequestMapping(value = "/service", method = RequestMethod.GET)
-	public ModelAndView getServicePage() {
-		ModelAndView modelAndView = new ModelAndView("service");
-
-		String authenticationName = SecurityContextHolder.getContext().getAuthentication().getName();
-		// User user = userService.load(authenticationName);
-		List<Service> services = metaDataService.serviceLoadAll();
-
-		modelAndView.addObject("services", services);
-		return modelAndView;
-	}
 }
