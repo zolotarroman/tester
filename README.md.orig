@@ -3,5 +3,8 @@ Fucking Death!
 Commit from Master branch
 Changes from Development branch
 
-Another changes from Development branch
+<<<<<<< HEAD
 Change-change
+=======
+Another changes from Development branch
+>>>>>>> development
